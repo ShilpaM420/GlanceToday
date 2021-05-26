@@ -41,14 +41,15 @@ function App() {
 export default App; */
 
 
-import axios from "react-axios";
+import axios from "axios";
 import { useEffect, useState} from "react";
 import "./App.css";
 import Footer from "./components/layout/Footer/Footer";
 import Navbar from "./components/layout/Navbar";
 import NewsContent from "./components/NewsContent/NewsContent";
-import apikey from "./components/layout/data/config";
+ // import apikey from "./components/layout/data/config";
 // import NewsCard from "./components/NewsCard/NewsCard";
+import Contact from "./components/layout/data/Contact";
 
 function App() {
   const [newsArray, setNewsArray] = useState([]);
@@ -56,16 +57,16 @@ function App() {
   const [loadMore, setLoadMore] = useState(20);
   const [category, setCategory] = useState("general");
 
- console.log(process.env);
+ // console.log(process.env);
 
   const newsApi = async () => {
     try {
-      const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+     // const proxyUrl = "https://cors-anywhere.herokuapp.com/";
        
       const news = await axios.get(
-        `${proxyUrl}https://newsapi.org/v2/everything?q=tesla&from=2021-04-19&sortBy=publishedAt&apiKey=${apikey}&pageSize=${loadMore}&category=${category}`
+        `https://newsapi.org/v2/top-headlines?country=us&apiKey=5e443677d42d4c779cdc9be236880d84&pageSize=${loadMore}&category=${category}`
       );
-     // console.log(news.data);
+     // console.log(news.data.articles);
       setNewsArray(news.data.articles);
       setNewsResults(news.data.totalResults);
     } catch (error) {
@@ -73,10 +74,10 @@ function App() {
     }
   }; 
 
-  useEffect(() => {
-    newsApi();
-    // eslint-disable-next-line
-  
+  useEffect( () => {
+
+    newsApi()
+    // eslint-disable-next-line 
   }, [newsResults, loadMore, category]);
 
   return (
@@ -90,7 +91,9 @@ function App() {
           setLoadMore={setLoadMore}
         />
       )}
-    
+      
+        <Contact/>
+      
       <Footer />
     </div>
   );

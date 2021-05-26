@@ -20,7 +20,7 @@ render(){
 return (
 	<div className="container">
     <form onSubmit={this.handleSubmit} className="white">
-    <h3 className="grey-text text-darken-3 bold">Contct us</h3>
+    <h3 className="grey-text text-darken-3 bold">Comment Your View</h3>
 
     <div className="input-field">
     <label htmlFor="name">Name</label>
@@ -38,7 +38,7 @@ return (
     </div>
 
     <div className="input-field">
-    <button className="btn blue lighten-1 z-depth-0">Submit</button>
+    <button className="btn blue lighten-1 z-depth-0" onChange={this.handleSubmit}>Submit</button>
     </div>
 
     </form>

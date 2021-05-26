@@ -96,6 +96,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 // import InboxIcon from "@material-ui/icons/MoveToInbox";
 // import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu"; // added
+import "./data/Contact";
 
 import {
   createMuiTheme,
@@ -159,7 +160,7 @@ export default function SwipeableTemporaryDrawer({ setCategory }) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <ListItem>Categories</ListItem>
+        <ListItem><b>Categories</b></ListItem>
       </List>
       <Divider />
       <List>
@@ -173,16 +174,15 @@ export default function SwipeableTemporaryDrawer({ setCategory }) {
             <ListItemText primary={text} />
           </ListItem>
         ))}
-      </List>
-      <Divider />
-      <List>
-      {['About', 'Contact'].map((text, index) => (
-          <ListItem button key={text}>
-           
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+        </List>
+        <Divider />
+        <List component="Contact">
+        <ListItem button>
+    <ListItemText primary="Contact" />
+    
+  </ListItem>
+  </List>
+      
     </div>
   );
 
@@ -190,7 +190,7 @@ export default function SwipeableTemporaryDrawer({ setCategory }) {
     <div>
       <Button onClick={toggleDrawer("left", true)}>
         {/* added icon */}
-        <MenuIcon />
+        <MenuIcon />       
       </Button>
       {/* added */}
       <ThemeProvider theme={theme}>

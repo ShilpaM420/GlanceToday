@@ -9,7 +9,7 @@ const NewsContent = ({ newsArray, loadMore, setLoadMore, newsResults }) => {
       <div className="content">
         <div className="downloadMessage">
           <span className="downloadText">
-            For the best experience use Glance today on your smart phone!!!
+            For the best experience use GlanceToday on your smart phone!!!
           </span>
           <img
             alt="app store"

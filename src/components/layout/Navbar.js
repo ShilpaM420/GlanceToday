@@ -104,21 +104,25 @@ import "./Navbar.css";
 import SidebarData from "./SidebarData";
 
 
+
 const Navbar = ({ setCategory }) => {
   return (
     <div className="nav">
       <div className="menu">
         <SidebarData setCategory={setCategory} />
       </div>
-
      
-              <h1
+
+
+              <h1 
             style={{ textAlign: "center", 
-                     marginLeft: "150px", 
+                     marginLeft: "100px", 
                      color: "green" }} >
+                 <i class="far fa-newspaper"></i>  
+
             Glance Today
-          </h1> 
-         
+          </h1>          
+
     </div>
   );
 };
